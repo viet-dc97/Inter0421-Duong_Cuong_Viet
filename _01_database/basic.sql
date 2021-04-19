@@ -130,11 +130,21 @@ join khachhang kh on kh.idKhachHang = hd.idKhachHang
  -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
  -- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
  
-select c.idDichVuDiKem, c.tenDichVuDiKem,c.gia, sum(b.SoLuong) as `Số lần sử dụng` from hopdong a join hopdongchitiet b on a.idHopDong = b.idHopDong
-join dichvudikem c on c.idDichVuDiKem = b.idDichVuDiKem
+
+ select c.idDichVuDiKem, c.tenDichVuDiKem,c.gia, sum(b.SoLuong) as `Số lần sử dụng` 
+ from hopdong a join hopdongchitiet b on a.idHopDong = b.idHopDong
+				join dichvudikem c on c.idDichVuDiKem = b.idDichVuDiKem
+
 group by c.idDichVuDiKem
-order by sum(b.SoLuong) desc
+having `Số lần sử dụng` in (select max(`Số lần sử dụng`) from (select sum(b.SoLuong) as `Số lần sử dụng` from hopdong a join hopdongchitiet b on a.idHopDong = b.idHopDong
+													join dichvudikem c on c.idDichVuDiKem = b.idDichVuDiKem
+													group by c.idDichVuDiKem
+                                                    order by `Số lần sử dụng` desc
+                                                    ) as max)
  ;
+ 
+ 
+
  
   -- ---------------------------------------------------------------------------------------------
  -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 

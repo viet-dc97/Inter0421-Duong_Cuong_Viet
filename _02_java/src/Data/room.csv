@@ -1,0 +1,2 @@
+id,serviceName,acreage,rentalCost,maxNumOfPeople,rentalType,freeService
+1,room,30.0,400000.0,4,standard,bcs

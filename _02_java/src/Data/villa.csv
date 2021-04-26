@@ -1,0 +1,3 @@
+id,serviceName,acreage,rentalCost,maxNumOfPeople,rentalType,roomType,description,pollArea,floors
+SVVL-1212,Villa1,40.0,500000.0,6,hour,standard,abc,40,3
+SVVL-1111,Villa2,40.0,500000.0,4,hour,standard,abc,50,3

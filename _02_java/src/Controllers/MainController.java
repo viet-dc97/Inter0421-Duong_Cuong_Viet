@@ -15,9 +15,9 @@ public class MainController {
     static RoomCsv roomCsv = new RoomCsv();
     static CustommerCsv custommerCsv = new CustommerCsv();
 
-    public static void main(String[] args) {
-        displayMainMenu();
-    }
+//    public static void main(String[] args) {
+//        displayMainMenu();
+//    }
 
     public static void displayMainMenu() {
         System.out.println("1.\tAdd New Services");
